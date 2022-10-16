@@ -8,7 +8,7 @@ SETLOCAL ENABLEEXTENSIONS
 SET parent=%~dp0
 
 ::This line sets the title of the command prompt that pops up. purely cosmetic.
-TITLE Automated ONScripter-EN Set Up v4.0 (A ONS-EN S U)
+TITLE Automated ONScripter-EN Set Up v4.1 (A ONS-EN S U)
 
 
 call :SubDependencyCheck
@@ -44,7 +44,7 @@ if %dsoundCheck% EQU 1 (
     goto :WD
 ) else if %nonDsoundCheck% EQU 1 (
     goto :WD 
-) else echo no ONS-EN.zip detected & goto :setONSmanually
+) else echo no ONS-EN.zip detected & goto :setONS_Nmanually
 
 
 :zipChoice
@@ -103,7 +103,7 @@ goto :end
 
 ::Subroutine "GI"
 :GI
-set /p GI=Enter the name of the game (this will be used to create a game.id folder, which tells onscripter what to call the automatic savedata folder)
+set /p GI=Enter the name of the game
 goto :EOF
 
 ::Subroutine "CleanUp"
@@ -168,6 +168,10 @@ set /a dependencyCheckSuccess=%dependencyCheckSuccess%+1
 ) else echo unzip.exe not detected
 
 
-if %dependencyCheckSuccess% LSS 4 echo not all dependencies are present. please refer to the list above to see what dependencies are missing, and place them in the script folder
+if %dependencyCheckSuccess% LSS 4 (
+    echo not all dependencies are present. please refer to the list above to see what dependencies are missing, and place them in the script folder
+    pause
+    exit
+    )
 
 :end
