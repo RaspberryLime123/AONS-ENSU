@@ -74,7 +74,7 @@ echo.
 
 call :GI
 ::asks the user to input the name of the game, to set the game.id file.
-::call :UmiCheck
+
 ::checks the GI for 'umineko', case insensitive. if umineko is present, makes sub and dir txt add a png-nsc-mask line to ons.cfg
 
 Set umi=%GI:umineko=%
