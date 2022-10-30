@@ -1,7 +1,3 @@
-*.zip
-AONS-ENSUv3(notfunctional).zip
-AONS-ENSUv4 dev
-AONS-ENSUv4.1/test/
-AONS-ENSUv4.1/onscripter-en-win32_dsound-20110628.zip
-AONS-ENSUv4.1/onscripter-en-win32-20110628.zip
 ignore/
+AONS-ENSUv4.1/test/
+AONS-ENSUv4.1/ignore/
