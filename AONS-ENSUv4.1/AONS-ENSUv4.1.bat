@@ -74,13 +74,22 @@ echo.
 
 call :GI
 ::asks the user to input the name of the game, to set the game.id file.
+::call :UmiCheck
+::checks the GI for 'umineko', case insensitive. if umineko is present, makes sub and dir txt add a png-nsc-mask line to ons.cfg
 
+Set umi=%GI:umineko=%
+
+set umiFound=false
+if /I "%umi%" == "%GI%" set umiCheck=a & set umiFound=true 
+IF umiFound==false set umiCheck=b
+
+
+
+:next
 call :SubDirAndTxt
 ::SubDirAndTXT enters the game directory, creates ons.cfg, a savedata folder in the game directory, 
 ::and changes the savedata location set in the ons.cfg file
 ::also creates a game.id file with the game name inside.
-
-
 
 
 call :SubCopy
@@ -101,9 +110,10 @@ goto :end
 
 ::Subroutines (basically functions? maybe?)
 
+
 ::Subroutine "GI"
 :GI
-set /p GI=Enter the name of the game
+set /p GI=Enter the name of the game 
 goto :EOF
 
 ::Subroutine "CleanUp"
@@ -131,6 +141,8 @@ cd %WD%
 type nul > ons.cfg
 
 echo save=%WD%\savedata > ons.cfg
+
+if "%umiCheck%" == "a" echo png-nsc-mask>>ons.cfg 
 
 type nul > game.id
 
