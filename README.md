@@ -2,7 +2,7 @@
  A batch file tool to automate the process of updating old ONScripter-EN executables. 
  
  DEPENDENCIES:
- unzip.exe (https://sourceforge.net/projects/infozip/files/UnZip%206.x%20%28latest%29/UnZip%206.0/)
+ unzip.exe https://sourceforge.net/projects/infozip/files/UnZip%206.x%20%28latest%29/UnZip%206.0/ (already included)
 
  This batch file requires a zip archive with the necessary contents to update the Old ONS-EN installation. Get one from kaisernet.org
  This should run on any windows system, post Win2000. 
