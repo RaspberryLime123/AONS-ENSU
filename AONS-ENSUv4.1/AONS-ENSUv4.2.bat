@@ -41,6 +41,11 @@ set nonDsoundCheck=1
 if %dsoundCheck% EQU 1 if %nonDsoundCheck% EQU 1 goto :zipChoice 
 
 if %dsoundCheck% EQU 1 (
+    if %dsoundCheck% EQU 1 (
+    set ONS_N=onscripter-en-win32_dsound-20110628.zip
+    ) else ( 
+    ONS_N=onscripter-en-win32-20110628.zip 
+    )
     goto :WD
 ) else if %nonDsoundCheck% EQU 1 (
     goto :WD 
