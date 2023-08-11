@@ -2,6 +2,7 @@
 
 ::This code is just for housekeeping. just leave it alone.
 SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEDELAYEDEXPANSION
 
 
 ::sets "parent" as the directory of AONS-ENSU.bat
@@ -35,10 +36,9 @@ echo  && echo continue to exit && pause )
 set zipname=0
 echo zipname = %zipname%
 if not exist zipname.txt  (echo zipname.txt DNE && call :zipchoice1) else (
-	for /f %%a in (zipname.txt) do set zipname=%%a
-	echo %zipname%
+	for /f "tokens=1 delims=" %%G in (zipname.txt) do (echo g=%%G && set zipname=%%G && echo zipname=%zipname% )
 )
-
+echo zipname = %zipname%
 :: set game ID
 :: 	check for umineko
 
