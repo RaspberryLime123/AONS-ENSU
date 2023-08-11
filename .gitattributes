@@ -1,0 +1,4 @@
+*.zip binary
+
+*.txt eol=CRLF
+*.bat eol=CRLF
