@@ -36,9 +36,10 @@ echo  && echo continue to exit && pause )
 set zipname=0
 echo zipname = %zipname%
 if not exist zipname.txt  (echo zipname.txt DNE && call :zipchoice1) else (
-	for /f "tokens=1 delims=" %%G in (zipname.txt) do (echo g=%%G && set zipname=%%G && echo zipname=%zipname% )
+	for /f "tokens=1,2 delims=" %%G in (zipname.txt) do (echo g=%%G && set zipname=%%G && echo zipname=%zipname% )
 )
-echo zipname = %zipname%
+for /f "tokens=1,2 delims=" %%G in (zipname.txt) do (echo g=%%G && set zipname=%%G && echo zipname=%zipname%)
+if not exist %zipname% echo %zipname% not found, please add %zipname% to the script directory, or if you've changed or renamed the .zip file, edit the zipname.txt to reflect your changes && echo continue to exit && pause && exit
 :: set game ID
 :: 	check for umineko
 
@@ -60,19 +61,23 @@ echo continue to exit && pause && goto :eof
 
 :zipchoice1
 	echo:
-	echo -zipchoice- 
+	echo -zipchoice1-
 	set "onsen-old-sdl-zip=0"
 	set "onsen-old-zip=0"
-	set "no-zip-err-msg=Neither the ONScipter-EN nor the ONScripter-insani zip is present in the zip directory. Please add at least one of the two .zip files to the script directory."
+	set "no-zip-err-msg1=Neither onscripter-en-win32_dsound-20110628.zip nor onscripter-en-win32-20110628.zip are present in the zip directory. Please add at least one of the two .zip files to the script directory."
+	set "no-zip-err-msg2=If the .zip file you want to use to update your ONScritper-EN games is not one one of the two listed above, please create a file named zipname.txt, and add the *exact* name of the .zip file, with the .zip extension to it. The file must be one line, and the .zip file must have no spaces in it's name for this to work"
 	echo vars set
 :: 	look for the 20110628 onscripter builds
 	if exist onscripter-en-win32_dsound-20110628.zip (set onsen-old-sdl-zip=1 && echo onsen found) else (echo onsen-old-sdl-zip not found)
 	if exist onscripter-en-win32-20110628.zip (set onsen-old-zip=1 && echo onsen-dsound found) else (echo onsen-old-zip not found)
-:: 	if neither the sdl build is found nor the no-sdl build is found, echo err msg and exit
-	if %onsen-old-zip% EQU 0 ( echo onsen EQU 0  passed  
-		if %onsen-old-sdl-zip% EQU 0 (echo EQU 0 passed && set "no-zip=1" ) 
-	) 
-	::if %no-zip% EQU 1 ( echo %no-zip-err-msg% && echo: && echo continue to exit && pause && exit)
+
+	if %onsen-old-zip% EQU 0 ( echo onsen-old EQU 0  passed  
+		if %onsen-old-sdl-zip% EQU 0 (echo onsen-old-sdl EQU 0 passed && set "no-zip=1" ) else (echo exiting -zipchoice1- && set zipname=onscripter-en-win32_dsound-20110628.zip && echo %zipname% > zipname.txt && exit /b) 
+	) else (echo exiting -zipchoice1- && set zipname=onscripter-en-win32-20110628.zip && echo %zipname% > zipname.txt && exit /b) 
+	if %onsen-old-sld-zip% EQU 0 ( echo echo onsen-old-sdl EQU passed, second if 
+		if %onsen-old% EQU 1 (echo exiting -zipchoice1- && set zipname=onscripter-en-win32-20110628.zip && echo %zipname% > zipname.txt && exit /b)
+	)
+	if %no-zip% EQU 1 ( echo %no-zip-err-msg1% &&  echo %no-zip-err-msg2% && echo: && echo continue to exit && pause && exit)
 
 ::	if both builds are found, ask user to choose between the two
 	if %onsen-old-sdl-zip% EQU 1 (call :zipchoice2)
