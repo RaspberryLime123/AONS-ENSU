@@ -2,7 +2,7 @@
  A batch file tool to automate the process of updating old ONScripter-EN executables. 
  
  DEPENDENCIES:
- - onscripter-en-win32_dsound-20110628.zip or onscripter-en-win32-20110628. download them from [kaisernet.org](http://kaisernet.org/onscripter/#builds)
+ - onscripter-en-win32_dsound-20110628.zip or onscripter-en-win32-20110628. download them from [kaisernet.org](http://kaisernet.org/onscripter/#builds), under "ONScripter-EN Historical Mirrors."
  - Windows
  
  Usage:
