@@ -6,7 +6,7 @@
  - Windows
  
  Usage:
- 1. Download the AONS-ENSU.bat, and move it to a folder. (I will use C:\Users\random\example as an example, but anytime you see C:\Users\random\example, you  should replace it with the path to the folder you chose on your machine)
+ 1. Download the AONS-ENSU.bat, and move it to a folder. I will use C:\Users\random\example as an example, but anytime you see C:\Users\random\example, you  should replace it with the path to the folder you chose on your machine
  2. Move your chosen .zip file to the same folder (C:\Users\random\example)
  3. Press Ctrl + r, type cmd, and hit enter (or open cmd.exe in some other way)
  4. Move into the AONS-ENSU folder by typing "cd C:\Users\random\example" and pressing enter.
