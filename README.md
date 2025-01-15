@@ -3,7 +3,7 @@
  
  ## Usage:
  ### Overview
- Example call
+ Example call:
  
  ```AONS-ENSU <game-folder-path> <game-name>```
  
@@ -13,7 +13,7 @@
  - ```AONS-ENSU``` needs a ```zip.txt``` file in the same directory to work. ```zip.txt``` should only contain the name of the ```.zip``` file that contains the updated executable, extension included.
 
  ### Step-by-step instructions
- If you didn't understand the overview, here is a set of step by step instructions to set up and use AONS-ENSU.
+ If you didn't understand the overview, here is a set of step by step instructions to set up and use AONS-ENSU. In addition to these instructions, there is also ```example-directory```, which shows what the final set up should look like.
  
  1. Download the AONS-ENSU.bat, and move it to a folder inside your ```Documents``` folder (example: ```C:\Users\RaspberryLime\Documents\VN\AONS-ENSU```) The name of this folder, and any folders it is inside of, *cannot contain any spaces.* (allowed:```C:\Users\RaspberryLime\Documents\VN\AONS-ENSU```. Not allowed: ```C:\Users\Raspberry Lime\Documents\VN\AONS-ENSU```)
  2. Move your chosen .zip file to the same folder (```C:\Users\RaspberryLime\Documents\VN\AONS-ENSU```)
